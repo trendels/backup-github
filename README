@@ -1,0 +1,10 @@
+A script to backup all you public github repositories. This is designed to be
+run from cron, e.g. like this:
+
+    0 0 * * * ~/bin/backup-github.py <username> <directory>
+
+For every one of <username>s github repos, a bare repo will be created under
+<directory> that tracks all remote branches.
+
+If you don't redirect output to /dev/null, you'll get mail (via cron) whenever
+a new repo was created or a new branch is being tracked.
