@@ -11,6 +11,9 @@ if len(sys.argv) != 3:
     sys.exit(2)
 
 (username, backupdir) = sys.argv[1:]
+if not os.path.isdir(backupdir):
+    print "Error: '%s' does not exist or is not a directory" % backupdir
+    sys.exit(3)
 
 f = urllib2.urlopen('http://github.com/api/v2/xml/repos/show/%s' % username)
 doc = xml.dom.minidom.parse(f)
